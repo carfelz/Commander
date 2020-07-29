@@ -15,7 +15,7 @@ namespace Commander.Controllers
 
         public IMapper _mapper { get; }
 
-        public CommandController(ICommanderRepo commanderRepo, IMapper mapper )
+        public CommandController(ICommanderRepo commanderRepo, IMapper mapper)
         {
             _data = commanderRepo;
             _mapper = mapper;
@@ -28,7 +28,7 @@ namespace Commander.Controllers
             return Ok(_mapper.Map<IEnumerable<ReadDtos>>(getItems));
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetById")]
 
         public ActionResult <ReadDtos> GetById(int id)
         {
